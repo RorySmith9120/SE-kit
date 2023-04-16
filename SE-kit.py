@@ -11,7 +11,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 #API key for openai
-openai.api_key = "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"
+openai.api_key = "[OpenAI API key]"
 
 #Description and usage for the programs help page
 parser = argparse.ArgumentParser(
@@ -36,7 +36,7 @@ except argparse.ArgumentTypeError as e:
     print(str(e))
     exit(1)
 	
-from_email = "autoemailer912@gmail.com"
+from_email = "[Email for sender]"
 
 #Asks AI Question
 def ask_openai(query):
@@ -85,7 +85,7 @@ for i, to_email in enumerate(recipients):
         session.starttls()
 
         # Login to account
-        password = "jxqtvvlxpeutafdl"
+        password = "[Email API password for sender]"
         session.login(from_email, password)
 
         # Send email
