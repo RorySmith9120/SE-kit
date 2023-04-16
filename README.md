@@ -13,7 +13,7 @@ options: <br />
   -n, --name    name you want to sign the letter with <br />
   
 ## Example:
--f EmailList.txt -u https://example.com -q "download security extension" -n "BigCompany Security Team"
+SE-kit.py -f EmailList.txt -u https://example.com -q "download security extension" -n "BigCompany Security Team"
 
 # Important!
 
