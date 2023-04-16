@@ -1,9 +1,9 @@
-#SE-kit
+# SE-kit
 
 SE-Kit is a tool designed for phishing attacks that achieves this through AI-generated phishing emails to trick victims into clicking
 malicious links
 
-#Usage
+# Usage
 
 options:
   -h, --help     show this help message and exit
@@ -15,6 +15,6 @@ options:
 Example:
 -f EmailList.txt -u https://example.com -q "download security extension" -n "BigCompany Security Team"
 
-#Important!
+# Important!
 
 Please edit the code replacing the openai api key and email login credentials with your own
