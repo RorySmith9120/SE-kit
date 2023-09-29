@@ -1,7 +1,7 @@
 # SE-kit
 
 SE-Kit is a tool designed for phishing attacks that achieves this through AI-generated phishing emails to trick victims into clicking
-malicious links
+malicious links as well as cloning websites and injecting javascript to allow for credential harvesting
 
 # Usage
 
