@@ -11,7 +11,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 #API key for openai
-openai.api_key = "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"
+openai.api_key = "XXXXX"
 
 #Description and usage for the programs help page
 parser = argparse.ArgumentParser(
